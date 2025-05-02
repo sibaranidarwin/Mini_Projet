@@ -1,6 +1,7 @@
 package com.example.mini_project.service;
 import com.example.mini_project.dto.ocr.ocrRequest;
 import com.example.mini_project.dto.ocr.ocrResponse;
+import com.example.mini_project.model.User;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;

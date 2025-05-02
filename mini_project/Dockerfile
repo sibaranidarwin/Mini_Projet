@@ -1,11 +1,25 @@
-# Gunakan base image OpenJDK
-FROM openjdk:17-jdk-slim
+# Gunakan Maven image dengan JDK 17
+FROM maven:3.9.4-eclipse-temurin-17 AS builder
 
-# Buat folder kerja di dalam container
+# Buat direktori kerja
 WORKDIR /app
 
-# Copy file JAR ke container
-COPY target/mini_project.jar app.jar
+# Copy semua file ke image
+COPY . .
 
-# Jalankan aplikasi
-CMD ["java", "-jar", "app.jar"]
+# Build aplikasi
+RUN mvn clean install -DskipTests
+
+# ==============================
+
+# Image baru untuk menjalankan aplikasi (lebih ringan)
+FROM openjdk:17-jdk-slim
+
+WORKDIR /app
+
+# Copy hasil build dari stage sebelumnya
+COPY --from=builder /app/target/*.jar app.jar
+
+EXPOSE 8080
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
