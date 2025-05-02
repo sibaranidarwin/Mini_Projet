@@ -7,6 +7,10 @@ import jakarta.persistence.Enumerated;
 public enum Role {
     SUPER_ADMIN,
     APPROVER,
-    ADMINISTRASI
+    ADMINISTRASI;
+
+    public String getAuthority() {
+        return name();
+    }
 }
 
