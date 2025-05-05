@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/mini_project/auth")
 public class AuthController {
 
    @Autowired
@@ -18,6 +18,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public LoginResponse login(@RequestBody LoginrRequest request) {
+        System.out.println("[LoginController] Login attempt: " + request.getUsername());
         return authService.login(request);
     }
 }

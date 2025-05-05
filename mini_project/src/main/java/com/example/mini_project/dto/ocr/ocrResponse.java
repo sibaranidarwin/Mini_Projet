@@ -12,7 +12,6 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Builder
-
 public class ocrResponse {
 
         private String invoiceNumber;

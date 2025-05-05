@@ -1,5 +1,5 @@
 # Gunakan Maven image dengan JDK 17
-FROM maven:3.9.4-eclipse-temurin-17 AS builder
+FROM maven:3.9.9 AS builder
 
 # Buat direktori kerja
 WORKDIR /app

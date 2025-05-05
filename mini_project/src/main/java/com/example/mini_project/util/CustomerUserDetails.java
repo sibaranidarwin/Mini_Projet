@@ -1,4 +1,4 @@
-package com.example.mini_project.service;
+package com.example.mini_project.util;
 
 import com.example.mini_project.model.User;
 import org.springframework.security.core.GrantedAuthority;
