@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Data
 public class ocrRequest {
     private String base64pdf;
+    private String username;
 
     public String getBase64pdf() {
         return base64pdf;
@@ -19,5 +20,13 @@ public class ocrRequest {
 
     public void setBase64pdf(String base64pdf) {
         this.base64pdf = base64pdf;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

@@ -1,26 +1,21 @@
 package com.example.mini_project.dto.ocr;
 
-
+import com.example.mini_project.dto.BaseResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.util.Base64;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Builder
-public class ocrResponse {
+public class ocrResponse extends BaseResponse {
 
         private String invoiceNumber;
         private String orderDate;
-        private List<String> items;
-        private String extractedText;
-        private String totalHargaProduk;
-        private String ongkosKirim;
-        private String totalBayar;
 
 
     public String getInvoiceNumber() {
@@ -37,45 +32,5 @@ public class ocrResponse {
 
     public void setOrderDate(String orderDate) {
         this.orderDate = orderDate;
-    }
-
-    public List<String> getItems() {
-        return items;
-    }
-
-    public void setItems(List<String> items) {
-        this.items = items;
-    }
-
-    public String getExtractedText() {
-        return extractedText;
-    }
-
-    public void setExtractedText(String extractedText) {
-        this.extractedText = extractedText;
-    }
-
-    public String getTotalHargaProduk() {
-        return totalHargaProduk;
-    }
-
-    public void setTotalHargaProduk(String totalHargaProduk) {
-        this.totalHargaProduk = totalHargaProduk;
-    }
-
-    public String getOngkosKirim() {
-        return ongkosKirim;
-    }
-
-    public void setOngkosKirim(String ongkosKirim) {
-        this.ongkosKirim = ongkosKirim;
-    }
-
-    public String getTotalBayar() {
-        return totalBayar;
-    }
-
-    public void setTotalBayar(String totalBayar) {
-        this.totalBayar = totalBayar;
     }
 }

@@ -2,7 +2,7 @@ package com.example.mini_project.controller;
 
 import com.example.mini_project.dto.ocr.ocrRequest;
 import com.example.mini_project.dto.ocr.ocrResponse;
-import com.example.mini_project.service.Ocr_Service;
+import com.example.mini_project.service.OcrService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 public class OcrController {
 
     @Autowired
-    private Ocr_Service ocrService;
+    private OcrService ocrService;
 
     @PostMapping("/submit")
     public ocrResponse Submitocr(@RequestBody ocrRequest request) {

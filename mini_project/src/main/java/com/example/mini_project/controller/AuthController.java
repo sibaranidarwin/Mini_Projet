@@ -18,7 +18,6 @@ public class AuthController {
 
     @PostMapping("/login")
     public LoginResponse login(@RequestBody LoginrRequest request) {
-        System.out.println("[LoginController] Login attempt: " + request.getUsername());
         return authService.login(request);
     }
 }

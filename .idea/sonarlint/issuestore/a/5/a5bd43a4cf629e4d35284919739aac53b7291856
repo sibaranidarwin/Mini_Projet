@@ -1,17 +1,0 @@
-
-a	java:S112‡"FDefine and throw a dedicated exception instead of using a generic one.(ÚØ‚ˆøÿÿÿÿ
-n	java:S135J"YReduce the total number of break and continue statements in this loop to use at most one.(•Ê‚’
-b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ƒ¥‘Õ
-t	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ï£¿şÿÿÿÿ
-m
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 27 to the 15 allowed.(ÑíÁåúÿÿÿÿ
-h
-java:S6204A"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹
-h
-java:S6204l"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹
-o
-java:S2139…"XEither log this exception and handle it, or rethrow it with some contextual information.(”ı¾
-[
-java:S1128"@Remove this unused import 'com.example.mini_project.model.User'.(¯õ¡ûÿÿÿÿ
-á
-java:S6541"ÅA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 86 to 64, Complexity from 21 to 14, Nesting Level from 5 to 2, Number of Variables from 26 to 6.(ÑíÁåúÿÿÿÿ

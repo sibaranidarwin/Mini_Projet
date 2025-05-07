@@ -1,11 +1,10 @@
 package com.example.mini_project.model;
 
-
 import jakarta.persistence.*;
-
-import java.math.BigDecimal;
-import java.security.Timestamp;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "invoices")
@@ -14,23 +13,92 @@ public class Invoice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "uploaded_by", nullable = false)
-    private User uploadedBy;
-
     private String invoiceNumber;
 
     private LocalDate orderDate;
 
-    private String vendorName;
-
-    private BigDecimal totalAmount;
+    @OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<InvoiceDetail> invoiceDetails = new ArrayList<>();
 
     @Column(columnDefinition = "TEXT")
     private String ocrRawText;
 
-    private Timestamp uploadedAt;
+    @Enumerated(EnumType.STRING)
+    private ApprovalStatus status = ApprovalStatus.WAITING;
 
-    // getter, setter, constructor
+    @ManyToOne
+    @JoinColumn(name = "uploaded_by", nullable = false)
+    private User uploadedBy;
+
+    private LocalDateTime uploadedAt;
+
+    public enum ApprovalStatus {
+        WAITING, APPROVED, REJECTED
+    }
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getInvoiceNumber() {
+        return invoiceNumber;
+    }
+
+    public void setInvoiceNumber(String invoiceNumber) {
+        this.invoiceNumber = invoiceNumber;
+    }
+
+    public LocalDate getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(LocalDate orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public List<InvoiceDetail> getInvoiceDetails() {
+        return invoiceDetails;
+    }
+
+    public void setInvoiceDetails(List<InvoiceDetail> invoiceDetails) {
+        this.invoiceDetails = invoiceDetails;
+    }
+
+    public String getOcrRawText() {
+        return ocrRawText;
+    }
+
+    public void setOcrRawText(String ocrRawText) {
+        this.ocrRawText = ocrRawText;
+    }
+
+    public ApprovalStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(ApprovalStatus status) {
+        this.status = status;
+    }
+
+    public User getUploadedBy() {
+        return uploadedBy;
+    }
+
+    public void setUploadedBy(User uploadedBy) {
+        this.uploadedBy = uploadedBy;
+    }
+
+    public LocalDateTime getUploadedAt() {
+        return uploadedAt;
+    }
+
+    public void setUploadedAt(LocalDateTime uploadedAt) {
+        this.uploadedAt = uploadedAt;
+    }
 }
 
